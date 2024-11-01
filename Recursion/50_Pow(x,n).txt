@@ -1,0 +1,53 @@
+class Solution {
+    public double myPow(double x, int n) {
+        double ans = 1.0;
+        double pow = n;
+        if(pow < 0) // if the value of power is negative
+        {
+            pow = pow * -1; // multiply with -1 to make it +ve number
+        }
+        while(pow > 0) // when pow is > than 0
+        {
+            if(pow % 2 == 0) // check if the pow is even number
+            {
+                x = x * x; // if even no. multiply x with x 
+                pow = pow /2; // and divide pow by 2 
+            }
+            else //if its odd number 
+            {
+                ans = ans * x; // multiply ans with x
+                pow = pow - 1; // and reduce 1 from power
+            }
+            if(n<0) //ie. if n is negative
+            {
+                ans = 1/ans; // divide ans by 1/ans
+            }
+        }
+        return ans;
+        
+    }
+}
+//eg if a = 2 n = 10
+// CONDTION 1 - check for n if its less than 0 mul by -1
+//CONDITION 2 - 10 > 0 check if 10 is even or odd by (10 % 2 ==0)
+// CONDITION 3 - IF even - x = (x * x) and pow = pow /2 ie. (2*2)raise to 5 ie. (4)power 5
+//CONDITION 4 - If odd eg. x = 2 n =5 then ans = ans * x and pow = pow -1 ie. 1 = 1*2 ie 2
+//CONDITON 5 - if n < 0 divide ans by 1 ie. eg n = -4 then 1 = 1/-4 ie.-0.25
+//Return ans 
+
+/*Implement pow(x, n), which calculates x raised to the power n (i.e., xn).
+
+Example 1:
+
+Input: x = 2.00000, n = 10
+Output: 1024.00000
+Example 2:
+
+Input: x = 2.10000, n = 3
+Output: 9.26100
+Example 3:
+
+Input: x = 2.00000, n = -2
+Output: 0.25000
+Explanation: 2-2 = 1/22 = 1/4 = 0.25 
+*/
